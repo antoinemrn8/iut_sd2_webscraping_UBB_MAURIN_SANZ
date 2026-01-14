@@ -1,5 +1,6 @@
 # Dictionnaire de données
 
+
 ## Onglet **classement** :
 
 | Abréviation | Signification |
@@ -17,6 +18,7 @@
 | C. | Points encaissés (points contre) |
 | Diff | Différence de points (P. − C.) |
 | Prochain match | Prochaine rencontre programmée (adversaire, date et lieu) |
+
 
 ## Equipes **TOP 14** :
 
@@ -36,6 +38,7 @@
 | R92 | Racing 92 |
 | USM | Montauban |
 | USAP | Perpignan |
+
 
 ## Equipes **Champions Cup** :
 
