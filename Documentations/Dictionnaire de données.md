@@ -1,6 +1,6 @@
 # Dictionnaire de données
 
-## Onglet `classement` :
+## Onglet **classement** :
 
 | Abréviation | Signification |
 | --- | --- |
@@ -18,7 +18,7 @@
 | Diff | Différence de points (P. − C.) |
 | Prochain match | Prochaine rencontre programmée (adversaire, date et lieu) |
 
-## Equipes `TOP 14` :
+## Equipes **TOP 14** :
 
 | Nom_court | Nom long |
 | --- | --- |
@@ -37,7 +37,7 @@
 | USM | Montauban |
 | USAP | Perpignan |
 
-## Equipes `Champions Cup` :
+## Equipes `**Champions Cup** :
 
 | Poule | Abréviation | Nom complet
 | --- | --- | --- |
