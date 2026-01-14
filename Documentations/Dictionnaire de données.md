@@ -20,20 +20,22 @@
 
 ## Equipes `TOP 14` :
 
-`SP` : Pau
-`ST` :	Stade Toulousain
-`SFP`	: Stade Français
-`UBB`	: Bordeaux-Bègles
-`MHR` :	Montpellier
-`RCT` :	Toulon
-`ASM` :	Clermont
-`ASR` :	La Rochelle
-`CO` :	Castres
-`AB` :	Bayonne
-`LOU` :	Lyon
-`R92` :	Racing 92
-`USM` :	Montauban
-`USAP` :	Perpignan
+| Nom_court | Nom long |
+| --- | --- |
+| SP | Pau |
+| ST | Stade Toulousain |
+| SFP | Stade Français |
+| UBB | Bordeaux-Bègles |
+| MHR | Montpellier |
+| RCT | Toulon |
+| ASM | Clermont |
+| ASR | La Rochelle |
+| CO | Castres |
+| AB | Bayonne |
+| LOU | Lyon |
+| R92 | Racing 92 |
+| USM | Montauban |
+| USAP | Perpignan |
 
 ## Equipes `Champions Cup` :
 
