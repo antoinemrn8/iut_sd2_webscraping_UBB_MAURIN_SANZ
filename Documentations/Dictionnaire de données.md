@@ -37,7 +37,7 @@
 | USM | Montauban |
 | USAP | Perpignan |
 
-## Equipes `**Champions Cup** :
+## Equipes **Champions Cup** :
 
 | Poule | Abréviation | Nom complet
 | --- | --- | --- |
