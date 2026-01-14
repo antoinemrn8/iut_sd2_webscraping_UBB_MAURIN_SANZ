@@ -1,27 +1,27 @@
 # Dictionnaire de données
 
-Pos : Position au classement
+`Pos` : Position au classement
 
-Équipe : Nom de l’équipe
+`Équipe` : Nom de l’équipe
 
-Pts : Points au classement
+`Pts` : Points au classement
 
-MJ : Matchs joués
+`MJ` : Matchs joués
 
-BO : Bonus offensifs (victoire avec bonus)
+`BO` : Bonus offensifs (victoire avec bonus)
 
-BD : Bonus défensifs (défaite de 7 points ou moins)
+`BD` : Bonus défensifs (défaite de 7 points ou moins)
 
-V : Victoires
+`V` : Victoires
 
-N : Matchs nuls
+`N` : Matchs nuls
 
-D : Défaites
+`D` : Défaites
 
-P. : Points marqués (points pour)
+`P.` : Points marqués (points pour)
 
-C. : Points encaissés (points contre)
+`C.` : Points encaissés (points contre)
 
-Diff : Différence de points (P. − C.)
+`Diff` : Différence de points (P. − C.)
 
-Prochain match : Prochaine rencontre programmée (adversaire, date et lieu)
+`Prochain match` : Prochaine rencontre programmée (adversaire, date et lieu)
