@@ -1,6 +1,6 @@
 # Dictionnaire de données
 
-## `Onglet classement :`
+## Onglet `classement` :
 
 `Pos` : Position au classement
 
