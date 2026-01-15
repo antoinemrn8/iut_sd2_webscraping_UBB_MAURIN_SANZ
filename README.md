@@ -27,18 +27,38 @@ Conformément aux consignes du projet en binôme, les responsabilités ont été
     * Analyse critique des résultats obtenus et rédaction des conclusions.
 
 ## 3. Prérequis techniques
-Pour exécuter ce projet, vous avez besoin de :
+Pour exécuter ce projet, l'environnement suivant est nécessaire :
 
-* **Langage :** [Java version X / Python version X]
-* **Outil de build :** [Maven / Gradle / Pip]
-* **IDE suggéré :** [IntelliJ / Eclipse / VS Code]
+* **Langage :** Python 3.x
+* **Gestionnaire de paquets :** pip
+* **Installation des dépendances :**
+    ```bash
+    pip install requests beautifulsoup4
+    ```
 
 ## 4. Librairies utilisées
-Le choix des technologies s'est porté sur :
+Le projet repose sur l'écosystème Python. Le choix des librairies a été motivé par la nécessité de naviguer dans le DOM et de nettoyer des données textuelles parfois complexes.
 
-* **Jsoup** (Java) : Pour le parsing HTML et l'extraction des nœuds DOM.
-* **OpenCSV** (Java) : Pour l'écriture des fichiers de sortie.
-* **[Autre librairie]** : [Description courte].
+### Bibliothèques tierces (Externes)
+* **Requests** (`requests`, `HTTPAdapter`, `Retry`) :
+    * Utilisée pour effectuer les requêtes HTTP (GET) vers les sites de l'UBB et de la ligue.
+    * *Justification :* L'ajout de `HTTPAdapter` et `Retry` nous permet de gérer automatiquement les erreurs de connexion et de ré-essayer en cas d'échec, rendant le scraper plus robuste face aux coupures réseau.
+* **BeautifulSoup4** (`bs4`) :
+    * Utilisée pour le parsing du code HTML récupéré.
+    * *Justification :* Elle permet de naviguer simplement dans l'arborescence du DOM (parents/enfants) et de cibler les données via des classes CSS ou des ID, simulant l'approche de Jsoup en Java.
+
+### Bibliothèques standard (Natives)
+* **Time** (`time`) :
+    * Utilisée pour introduire des pauses (`time.sleep`) entre les requêtes.
+    * *Justification :* Essentiel pour respecter l'éthique du scraping et éviter de surcharger les serveurs cibles.
+* **Re** (`re`) :
+    * Utilisée pour les expressions régulières (Regex).
+    * *Justification :* Permet un nettoyage fin des données (ex: extraire uniquement les chiffres d'une chaîne "80 min", supprimer les espaces superflus).
+* **Unicodedata** (`unicodedata`) :
+    * Utilisée pour la normalisation du texte.
+    * *Justification :* Permet de gérer les encodages et de transformer les caractères spéciaux (accents) pour uniformiser les noms des joueurs ou les villes.
+* **Urllib & Pathlib** (`urllib.parse`, `pathlib`) :
+    * Utilisées pour la manipulation sécurisée des URLs (jointures) et la gestion compatible (Windows/Mac/Linux) des chemins de fichiers pour l'export des données.
 
 ## 5. Architecture du projet
 ```text
