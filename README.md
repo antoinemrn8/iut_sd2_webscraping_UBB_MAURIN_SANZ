@@ -46,21 +46,21 @@ Le projet repose sur l'écosystème Python. Le choix des librairies a été moti
 ## 4. Étapes pour reproduire le projet // Répartition des rôles
 Conformément aux consignes du projet en binôme, les responsabilités ont été réparties comme suit :
 
-* **Étape 1 : Vérification de la légalité (Robots.txt)**
+* **Préalable : Vérification de la légalité (Robots.txt)**
    * [cite_start]Avant tout scraping, nous avons identifié des sources autorisant la collecte automatisée[cite: 139].
    * Action :** Vérifier l'URL `site-cible.com/robots.txt`.
    * Critère :** S'assurer que les chemins d'accès aux données des joueurs et du classement ne sont pas en `Disallow`.
 
-* **Étape 2 : Analyse & Extraction (Responsable : Antoine)**
+* **Étape 1 : Analyse & Extraction (Responsable : Antoine)**
     * Identification des sources de données et analyse du DOM.
     * Développement des scripts de scraping pour récupérer le contenu HTML brut.
     * Gestion des requêtes HTTP et contournement basique des protections (User-Agent).
 
-* **Étape 3 : Traitement & Export (Responsable : Rafaël)**
+* **Étape 2 : Traitement & Export (Responsable : Rafaël)**
     * Nettoyage des données brutes (suppression des balises, formatage des nombres/dates).
     * Structuration des données.
     * Implémentation de l'export vers un format exploitable (CSV / JSON).
 
-* **Étape 4 : Visualisation & Interprétation (Travail commun)**
+* **Étape 3 : Visualisation & Interprétation (Travail commun)**
     * Création des graphiques et tableaux de bord (via [Excel / PowerBI / D3.js - *Choisis ton outil*]).
     * Analyse critique des résultats obtenus et rédaction des conclusions.
