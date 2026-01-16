@@ -60,31 +60,31 @@ Le projet repose sur l'écosystème Python. Le choix des librairies a été moti
 * **Urllib & Pathlib** (`urllib.parse`, `pathlib`) :
     * Utilisées pour la manipulation sécurisée des URLs (jointures) et la gestion compatible (Windows/Mac/Linux) des chemins de fichiers pour l'export des données.
 
-### 5. Étapes pour reproduire le projet
+## 5. Étapes pour reproduire le projet
 
 Ce projet a été construit selon une méthodologie rigoureuse en 5 étapes. Pour reproduire notre travail ou le relancer, suivez le cheminement ci-dessous :
 
-* Étape 1 : Vérification de la légalité (Robots.txt)
+### Étape 1 : Vérification de la légalité (Robots.txt)
 [cite_start]Avant tout scraping, nous avons identifié des sources autorisant la collecte automatisée[cite: 139].
 * **Action :** Vérifier l'URL `site-cible.com/robots.txt`.
 * **Critère :** S'assurer que les chemins d'accès aux données des joueurs et du classement ne sont pas en `Disallow`.
 
-* Étape 2 : Ciblage des données
+### Étape 2 : Ciblage des données
 [cite_start]Nous avons défini précisément quelles données étaient nécessaires pour notre analyse de l'UBB[cite: 83, 84].
 * **Données visées :** Statistiques individuelles (essais, plaquages), classement Top 14, résultats des matchs.
 * **Analyse :** Inspection du DOM des pages cibles pour repérer les balises HTML contenant ces informations.
 
-* Étape 3 : Exécution du script de Scraping
+### Étape 3 : Exécution du script de Scraping
 [cite_start]Lancement du code Python pour extraire les données brutes[cite: 30, 90].
 * **Commande :** Lancer `python main.py` (ou le nom de votre script principal).
 * **Sortie :** Le script génère des fichiers (CSV ou JSON) contenant les données brutes extraites du web.
 
-* Étape 4 : Nettoyage et transformation sous PowerBI
+### Étape 4 : Nettoyage et transformation sous PowerBI
 [cite_start]Contrairement à une approche pur code, le nettoyage final est délégué à l'outil de BI[cite: 34, 179].
 * **Action :** Importer les fichiers bruts (CSV/JSON) dans PowerBI.
 * **Traitement (Power Query) :** Suppression des erreurs, typage des colonnes (nombres, dates) et normalisation des textes via l'éditeur de requêtes de PowerBI.
 
-* Étape 5 : Visualisation orientée par la problématique
+### Étape 5 : Visualisation orientée par la problématique
 [cite_start]La création du tableau de bord est guidée par une ligne directrice claire (la problématique)[cite: 20].
 * **Problématique définie :** *"Comment les performances individuelles des joueurs de l'UBB influencent-elles le classement global du club cette saison ?"* (Exemple à adapter).
 * **Résultat :** Production des graphiques permettant de répondre à cette question et d'interpréter les résultats.
