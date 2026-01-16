@@ -46,7 +46,7 @@ Le projet repose sur l'écosystème Python. Le choix des librairies a été moti
 ## 4. Étapes pour reproduire le projet // Répartition des rôles
 Conformément aux consignes du projet en binôme, les responsabilités ont été réparties comme suit :
 
-* ** Étape 1 : Vérification de la légalité (Robots.txt)
+* **Étape 1 : Vérification de la légalité (Robots.txt)
    * [cite_start]Avant tout scraping, nous avons identifié des sources autorisant la collecte automatisée[cite: 139].
    * Action :** Vérifier l'URL `site-cible.com/robots.txt`.
    * Critère :** S'assurer que les chemins d'accès aux données des joueurs et du classement ne sont pas en `Disallow`.
