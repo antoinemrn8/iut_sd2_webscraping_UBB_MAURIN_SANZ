@@ -65,10 +65,10 @@ Le projet repose sur l'écosystème Python. Le choix des librairies a été moti
 /src
   /main
     /java
-      /extraction    <-- Code d'Antoine (Scrapers)
-      /processing    <-- Code de Rafaël (Nettoyage, Objets Métier)
-      /export        <-- Code de Rafaël (Génération CSV/JSON)
-  /resources         <-- Fichiers de configuration
-/data                <-- Dossier où les fichiers .csv/.json sont générés
+      /extraction
+      /processing
+      /export
+  /resources
+/data
 README.md
 pom.xml (ou requirements.txt)
