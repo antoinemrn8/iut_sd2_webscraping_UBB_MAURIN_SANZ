@@ -1,7 +1,3 @@
-
-Points clés du dossier
-Scripts Python pour le web scraping des joueurs UBB, du classement Top 14 et de la Champions Cup.
-
 import re
 from pathlib import Path
 from typing import List, Dict, Optional, Tuple
