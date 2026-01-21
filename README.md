@@ -1,4 +1,3 @@
-# iut_sd2_webscraping_UBB_MAURIN_SANZ
 # Projet de Web Scraping : Analyse des données de l'Union Bordeaux-Bègles (UBB)
 
 ## 1. Description du projet
@@ -20,7 +19,7 @@ Pour exécuter ce projet, l'environnement suivant est nécessaire :
     ```
 
 ## 3. Librairies utilisées
-Le projet repose sur l'écosystème Python. Le choix des librairies a été motivé par la nécessité de naviguer dans le DOM et de nettoyer des données textuelles parfois complexes.
+Le projet repose sur l'écosystème Python. Le choix des librairies a été motivé par la nécessité de naviguer dans le DOM.
 
 ### Bibliothèques tierces (Externes)
 * **Requests** (`requests`, `HTTPAdapter`, `Retry`) :
