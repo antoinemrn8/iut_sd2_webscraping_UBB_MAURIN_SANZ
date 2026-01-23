@@ -64,7 +64,7 @@ Conformément aux consignes du projet en binôme, les responsabilités ont été
     * Création des graphiques et tableaux de bord (via [Excel / PowerBI / D3.js - *Choisis ton outil*]).
     * Analyse critique des résultats obtenus et rédaction des conclusions.
  
-Liens utiles :
+## Liens utiles :
 * [Lien vers le dictionnaire de données](https://github.com/antoinemrn8/iut_sd2_webscraping_UBB_MAURIN_SANZ/blob/main/Documentations/Dictionnaire%20de%20donn%C3%A9es.md)
 * [Lien vers le téléchargement du tableau de bord](https://github.com/antoinemrn8/iut_sd2_webscraping_UBB_MAURIN_SANZ/blob/main/power_BI/UBB_analyse.pbix)
 * [Lien vers le rapport](...)
