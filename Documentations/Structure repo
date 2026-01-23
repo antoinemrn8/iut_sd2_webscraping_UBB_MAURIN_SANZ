@@ -2,40 +2,35 @@ iut_sd2_webscraping_UBB_MAURIN_SANZ/
 │
 ├── Documentations/                    # Dossier pour avoir toutes les définitions etc
 │   ├── Dictionnaire de données.md     # Contient la signification de toutes les abréviations
-│   ├── html_view_sources.md           # Contient les liens de code source de pages scrapent
-│   └── Structure repo                 
+│   ├── Structure repo 
+│   └── html_view_sources.md           # Contient les liens de code source de pages scrapent                
 │
 ├── data/                              # Dossier contenant tous les fichiers utilisés pour le PBI
-│   ├── CSVs/                          # Contient tous les fichiers csv scrapent
+│   ├── csv/                           # Contient tous les fichiers csv scrapent
+│      ├── PlayersPhotosURL.csv
 │      ├── classement_cup.csv
 │      ├── classement_top14.csv
+│      ├── nationality_images.csv
 │      ├── players.csv
-│      └── results.csv
-│   ├── Meaning/                       # Contient les acronymes des noms de clubs au format csv
-│      ├── Nom_CUP.csv
-│      ├── Nom_TOP_14.csv
-│      └── signification_classement.csv
-│   ├── Players/                       # Contient les images png des joueurs de l'UBB par type de poste
-│      ├── 1ere_ligne/                 
-│      ├── 2eme_ligne/
-│      ├── 3eme_ligne/
-│      ├── ailier/
-│      ├── arriere/
-│      ├── centre/
-│      └── charniere/
-│   └── nationality/                  # Contient les le drapeaux des nationalités pour le tableau de bord
+│      ├── results.csv
+│      ├── teams_cup.csv
+│      └── teams_top14.csv
+│   └── nationality/                  # Contient les drapeaux des nationalités pour le tableau de bord
 │
-├── python_script_extraction/         # Dossier contenant tous les codes de scrap
-│   ├── 0_extract_players.py          # Scrap des images des joueurs
-│   ├── extract_classement.py         # Scrap des classements
-│   ├── extract_classement_cup.py     # Scrap du classement de Champions Cup
-│   ├── extract_classement_top14.py   # Scrap du classement du Top 14
-│   ├── extract_img_players.py        # Scrap des images des joueurs
-│   ├── extract_players.py            # Scrap des informations des joueurs
-│   ├── extract_results.py            # Scrap des résulats du club
-│   ├── photo_extract.py              # Scrap des images des joueurs
-│   ├── test_flags.py                 # Scrap des images des drapeaux
-│   └── url_extract.py                # Scrap des liens des images des joueurs
+├── extraction_python/                # Dossier contenant tous les codes de scrap
+│   ├── extract_classement.py
+│   ├── extract_classement_cup.py
+│   ├── extract_classement_top14.py
+│   ├── extract_players.py
+│   ├── extract_results.py
+│   ├── photo_extract.py
+│   ├── test_flags.py
+│   └── url_extract.py
 │
-├── Rapport_UBB.pdf                   
-└── README.md                         # Documentation du projet (Comment installer, comment lancer)
+├── power_BI/                          # Dossier contenant les transformations et images / icônes powerBI
+│   ├── T_power_query/                 # Contient toutes les transformations du tableau de bord en fichiers texte
+│   ├── image/                         # Contient les icône utilisées dans le tableau de bord
+|   └── UBB_analyse.pbix               # Fichier téléchargeable permettant d'accéder au tableau de bord
+│
+├── README.md                         # Documentation du projet (Comment installer, comment lancer)
+└── Rapport.pdf
