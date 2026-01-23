@@ -5,7 +5,7 @@ Voici quelques liens de code sources de pages de l'UBB nous ayant aider pour fai
 ```
 view-source:https://www.ubbrugby.com/equipes/equipe-premiere/effectif/j286-benjamin-tameifuna.html
 ```
-`Page de Benjamin Tameifuna`
+`Page de Boris Palu`
 ```
 view-source:https://www.ubbrugby.com/equipes/equipe-premiere/effectif/j466-boris-palu.html
 ```
