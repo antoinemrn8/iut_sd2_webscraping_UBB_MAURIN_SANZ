@@ -65,5 +65,5 @@ Conformément aux consignes du projet en binôme, les responsabilités ont été
     * Analyse critique des résultats obtenus et rédaction des conclusions.
  
 Liens utiles :
-* [Tableau de bord](https://github.com/antoinemrn8/iut_sd2_webscraping_UBB_MAURIN_SANZ/blob/main/power_BI/UBB_analyse.pbix)
+* [Tableau de bord](https://[github.com](https://raw.githubusercontent.com/antoinemrn8/iut_sd2_webscraping_UBB_MAURIN_SANZ/blob/main/power_BI/UBB_analyse.pbix)
 * []()
