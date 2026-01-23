@@ -1,5 +1,28 @@
 # Dictionnaire de données
 
+## Structure du repo
+
+iut_sd2_webscraping_UBB_MAURIN_SANZ/
+│
+├── data/                    # Dossier pour stocker les données
+│   ├── raw/                 # Données brutes (telles que scrapées, ex: html, json brut)
+│   └── processed/           # Données nettoyées et formatées (ex: csv final, excel)
+│       └── ubb_data.csv
+│
+├── notebooks/               # Pour les tests et l'exploration (Jupyter Notebooks)
+│   ├── 01_test_scraping.ipynb
+│   └── 02_analyse_donnees.ipynb
+│
+├── src/                     # Le code source propre (scripts Python)
+│   ├── __init__.py
+│   ├── scraper.py           # Le script principal de scraping
+│   ├── cleaner.py           # Script pour nettoyer les données (regex, conversions)
+│   └── utils.py             # Fonctions utiles (ex: gestion des logs, user-agents)
+│
+├── main.py                  # Point d'entrée pour lancer tout le processus
+├── requirements.txt         # Liste des librairies (pandas, beautifulsoup4, selenium, etc.)
+├── .gitignore               # Pour ne pas envoyer les gros fichiers de données ou les venv sur Git
+└── README.md                # Documentation du projet (Comment installer, comment lancer)
 
 ## Onglet **classement** :
 
