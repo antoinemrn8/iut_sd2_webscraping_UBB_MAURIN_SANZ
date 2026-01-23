@@ -1,0 +1,9 @@
+let
+    Source = Csv.Document(File.Contents("C:\Users\rafae\OneDrive\Documents\web_scrapping\data\classement_top14.csv"),[Delimiter=";", Columns=15, Encoding=65001, QuoteStyle=QuoteStyle.None]),
+    #"En-têtes promus" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+    #"Type modifié" = Table.TransformColumnTypes(#"En-têtes promus",{{"rank", Int64.Type}, {"team", type text}, {"pts", Int64.Type}, {"mj", Int64.Type}, {"bo", Int64.Type}, {"bd", Int64.Type}, {"v", Int64.Type}, {"n", Int64.Type}, {"d", Int64.Type}, {"pts_for", Int64.Type}, {"pts_against", Int64.Type}, {"diff", Int64.Type}, {"next_match", type text}, {"next_venue", type text}, {"source_url", type text}}),
+    #"Fractionner la colonne par position" = Table.SplitColumn(#"Type modifié", "next_match", Splitter.SplitTextByPositions({0, 12}, true), {"next_match.1", "next_match.2"}),
+    #"Type modifié1" = Table.TransformColumnTypes(#"Fractionner la colonne par position",{{"next_match.1", type text}, {"next_match.2", type date}}),
+    #"Colonnes renommées" = Table.RenameColumns(#"Type modifié1",{{"next_match.2", "date_next_match"}, {"next_match.1", "team_next_match"}})
+in
+    #"Colonnes renommées"

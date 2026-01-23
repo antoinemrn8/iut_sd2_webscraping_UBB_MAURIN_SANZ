@@ -1,0 +1,55 @@
+let
+    Source = results,
+
+    // 1) Types
+    Types = Table.TransformColumnTypes(Source, {
+        {"date", type date},
+        {"team_home", type text},
+        {"team_away", type text},
+        {"score_home", Int64.Type},
+        {"score_away", Int64.Type},
+        {"competition", type text}
+    }),
+
+    // 2) Normaliser Competition + CompetitionKey
+    AddCompetition = Table.AddColumn(Types, "Competition", each
+        if [competition] = "Top 14" then "TOP14"
+        else if [competition] = "Champions Cup" then "CUP"
+        else if [competition] = "Amical Clubs" then "FRIENDLY"
+        else "OTHER"
+    , type text),
+
+    AddCompetitionKey = Table.AddColumn(AddCompetition, "CompetitionKey", each
+        if [Competition] = "TOP14" then 1
+        else if [Competition] = "CUP" then 2
+        else 0
+    , Int64.Type),
+
+    // 3) Team keys
+    AddHomeKey = Table.AddColumn(AddCompetitionKey, "HomeTeamKey", each fnTeamKey([team_home]), type text),
+    AddAwayKey = Table.AddColumn(AddHomeKey, "AwayTeamKey", each fnTeamKey([team_away]), type text),
+
+    // 4) Merge DimTeam -> récupérer IDs
+    MergeHome = Table.NestedJoin(AddAwayKey, {"HomeTeamKey"}, DimTeam, {"TeamKey"}, "HomeTeamDim", JoinKind.LeftOuter),
+    ExpandHome = Table.ExpandTableColumn(MergeHome, "HomeTeamDim", {"TeamID"}, {"HomeTeamID"}),
+
+    MergeAway = Table.NestedJoin(ExpandHome, {"AwayTeamKey"}, DimTeam, {"TeamKey"}, "AwayTeamDim", JoinKind.LeftOuter),
+    ExpandAway = Table.ExpandTableColumn(MergeAway, "AwayTeamDim", {"TeamID"}, {"AwayTeamID"}),
+
+    // 5) Flag UBB + points UBB / Opp
+    AddUBBHome = Table.AddColumn(ExpandAway, "UBB_is_home", each [HomeTeamKey] = fnTeamKey("Union Bordeaux-Bègles") or [HomeTeamKey] = fnTeamKey("Bordeaux-Bègles"), type logical),
+
+    AddUBBPoints = Table.AddColumn(AddUBBHome, "UBB_points", each if [UBB_is_home] then [score_home] else [score_away], Int64.Type),
+    AddOppPoints = Table.AddColumn(AddUBBPoints, "Opp_points", each if [UBB_is_home] then [score_away] else [score_home], Int64.Type),
+
+    AddDiff = Table.AddColumn(AddOppPoints, "UBB_diff", each [UBB_points] - [Opp_points], Int64.Type),
+    AddResult = Table.AddColumn(AddDiff, "UBB_result", each if [UBB_diff] > 0 then "W" else if [UBB_diff] = 0 then "D" else "L", type text),
+
+    // 6) MatchID stable
+    AddMatchID = Table.AddColumn(AddResult, "MatchID", each
+        Date.ToText([date], "yyyyMMdd") & "_" &
+        Text.From([CompetitionKey]) & "_" &
+        [HomeTeamKey] & "_" & [AwayTeamKey]
+    , type text)
+in
+    AddMatchID

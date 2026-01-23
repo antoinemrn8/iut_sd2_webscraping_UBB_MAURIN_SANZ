@@ -1,0 +1,65 @@
+let
+    // 1) Teams venant des résultats (domicile / extérieur)
+    TeamsResultsHome =
+        Table.RenameColumns(
+            Table.SelectColumns(results, {"team_home"}),
+            {{"team_home", "TeamName"}}
+        ),
+
+    TeamsResultsAway =
+        Table.RenameColumns(
+            Table.SelectColumns(results, {"team_away"}),
+            {{"team_away", "TeamName"}}
+        ),
+
+    // 2) Teams venant des classements
+    TeamsTop14 =
+        Table.RenameColumns(
+            Table.SelectColumns(classement_top14, {"team"}),
+            {{"team", "TeamName"}}
+        ),
+
+    TeamsCup =
+        Table.RenameColumns(
+            Table.SelectColumns(classement_cup, {"team"}),
+            {{"team", "TeamName"}}
+        ),
+
+    // 3) Union de toutes les sources
+    AllTeams = Table.Combine({TeamsResultsHome, TeamsResultsAway, TeamsTop14, TeamsCup}),
+
+    // 4) Nettoyage des valeurs vides
+    CleanText = Table.TransformColumns(AllTeams, {{"TeamName", each Text.Trim(_), type text}}),
+    NoNull = Table.SelectRows(CleanText, each [TeamName] <> null and [TeamName] <> ""),
+
+    // 5) Ajout TeamKey (clé stable)
+    AddTeamKey = Table.AddColumn(NoNull, "TeamKey", each fnTeamKey([TeamName]), type text),
+
+    // 6) Déduplication : 1 ligne par équipe
+    DistinctTeams =
+        Table.Distinct(
+            Table.SelectColumns(AddTeamKey, {"TeamKey", "TeamName"}),
+            {"TeamKey"}
+        ),
+
+    // 7) Optionnel : flag UBB (pratique pour slicers/mesures)
+    AddIsUBB = Table.AddColumn(
+        DistinctTeams,
+        "IsUBB",
+        each [TeamKey] = fnTeamKey("Union Bordeaux-Bègles") or [TeamKey] = fnTeamKey("Bordeaux-Bègles"),
+        type logical
+    ),
+    #"Index ajouté" = Table.AddIndexColumn(AddIsUBB, "Index", 1, 1, Int64.Type),
+    #"Colonnes permutées" = Table.ReorderColumns(#"Index ajouté",{"Index", "TeamKey", "TeamName", "IsUBB"}),
+    #"Colonnes renommées" = Table.RenameColumns(#"Colonnes permutées",{{"Index", "TeamID"}}),
+    #"Requêtes fusionnées" = Table.NestedJoin(#"Colonnes renommées", {"TeamKey"}, teams_top14, {"TeamKey"}, "teams_top14", JoinKind.LeftOuter),
+    #"teams_top14 développé" = Table.ExpandTableColumn(#"Requêtes fusionnées", "teams_top14", {"Abréviation"}, {"Abréviation"}),
+    #"Requêtes fusionnées1" = Table.NestedJoin(#"teams_top14 développé", {"TeamKey"}, teams_cup, {"TeamKey"}, "teams_cup", JoinKind.LeftOuter),
+    #"teams_cup développé" = Table.ExpandTableColumn(#"Requêtes fusionnées1", "teams_cup", {"Poule", "Abréviation"}, {"Poule", "Abréviation.1"}),
+    #"Colonnes permutées1" = Table.ReorderColumns(#"teams_cup développé",{"TeamID", "TeamKey", "TeamName", "IsUBB", "Abréviation", "Abréviation.1", "Poule"}),
+    #"Colonnes renommées1" = Table.RenameColumns(#"Colonnes permutées1",{{"Abréviation", "Abbrev_TOP14"}, {"Abréviation.1", "Abbrev_CUP"}}),
+    #"Personnalisée ajoutée" = Table.AddColumn(#"Colonnes renommées1", "Abbréviation", each if [Abbrev_TOP14] <> null then [Abbrev_TOP14] else [Abbrev_CUP]),
+    #"Colonnes supprimées" = Table.RemoveColumns(#"Personnalisée ajoutée",{"Abbrev_CUP", "Abbrev_TOP14"}),
+    #"Colonnes permutées2" = Table.ReorderColumns(#"Colonnes supprimées",{"TeamID", "TeamKey", "TeamName", "Abbréviation", "IsUBB", "Poule"})
+in
+    #"Colonnes permutées2"

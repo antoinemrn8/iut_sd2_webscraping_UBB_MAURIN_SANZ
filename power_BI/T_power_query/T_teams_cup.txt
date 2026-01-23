@@ -1,0 +1,7 @@
+let
+    Source = Csv.Document(File.Contents("C:\Users\rafae\OneDrive\Documents\web_scrapping\data\teams_cup.csv"),[Delimiter=";", Columns=3, Encoding=65001, QuoteStyle=QuoteStyle.None]),
+    #"En-têtes promus" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+    #"Type modifié" = Table.TransformColumnTypes(#"En-têtes promus",{{"Poule", Int64.Type}, {"Abréviation", type text}, {"Nom complet", type text}}),
+    #"Personnalisée ajoutée" = Table.AddColumn(#"Type modifié", "TeamKey", each fnTeamKey([Nom complet]))
+in
+    #"Personnalisée ajoutée"
