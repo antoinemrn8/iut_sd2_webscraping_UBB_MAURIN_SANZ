@@ -63,3 +63,7 @@ Conformément aux consignes du projet en binôme, les responsabilités ont été
 * **Étape 3 : Visualisation & Interprétation (Travail commun)**
     * Création des graphiques et tableaux de bord (via [Excel / PowerBI / D3.js - *Choisis ton outil*]).
     * Analyse critique des résultats obtenus et rédaction des conclusions.
+ 
+Liens utiles :
+* [Tableau de bord](https://github.com/antoinemrn8/iut_sd2_webscraping_UBB_MAURIN_SANZ/blob/main/power_BI/UBB_analyse.pbix)
+* []()
