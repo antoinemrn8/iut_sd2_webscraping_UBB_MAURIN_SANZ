@@ -17,4 +17,4 @@ view-source:https://www.ubbrugby.com/equipes/equipe-premiere/classement.html
 ```
 view-source:https://www.ubbrugby.com/equipes/equipe-premiere/calendrier-resultats.html
 ```
-[salut](https://github.com)
+[salut](https://view-source:https://www.ubbrugby.com/equipes/equipe-premiere/calendrier-resultats.html)
