@@ -4,25 +4,45 @@
 
 iut_sd2_webscraping_UBB_MAURIN_SANZ/
 │
-├── data/                    # Dossier pour stocker les données
-│   ├── raw/                 # Données brutes (telles que scrapées, ex: html, json brut)
-│   └── processed/           # Données nettoyées et formatées (ex: csv final, excel)
-│       └── ubb_data.csv
+├── Documentations/                    # Dossier pour avoir toutes les définitions etc
+│   ├── Dictionnaire de données.md     # Contient la signification de toutes les abréviations
+│   ├── html_view_sources.md           # Contient les liens de code source de pages scrapent
+│   └── Structure repo                 
 │
-├── notebooks/               # Pour les tests et l'exploration (Jupyter Notebooks)
-│   ├── 01_test_scraping.ipynb
-│   └── 02_analyse_donnees.ipynb
+├── data/                              # Dossier contenant tous les fichiers utilisés pour le PBI
+│   ├── CSVs/                          # Contient tous les fichiers csv scrapent
+│      ├── classement_cup.csv
+│      ├── classement_top14.csv
+│      ├── players.csv
+│      └── results.csv
+│   ├── Meaning/                       # Contient les acronymes des noms de clubs au format csv
+│      ├── Nom_CUP.csv
+│      ├── Nom_TOP_14.csv
+│      └── signification_classement.csv
+│   ├── Players/                       # Contient les images png des joueurs de l'UBB par type de poste
+│      ├── 1ere_ligne/                 
+│      ├── 2eme_ligne/
+│      ├── 3eme_ligne/
+│      ├── ailier/
+│      ├── arriere/
+│      ├── centre/
+│      └── charniere/
+│   └── nationality/                  # Contient les le drapeaux des nationalités pour le tableau de bord
 │
-├── src/                     # Le code source propre (scripts Python)
-│   ├── __init__.py
-│   ├── scraper.py           # Le script principal de scraping
-│   ├── cleaner.py           # Script pour nettoyer les données (regex, conversions)
-│   └── utils.py             # Fonctions utiles (ex: gestion des logs, user-agents)
+├── python_script_extraction/         # Dossier contenant tous les codes de scrap
+│   ├── 0_extract_players.py          # Scrap des images des joueurs
+│   ├── extract_classement.py         # Scrap des classements
+│   ├── extract_classement_cup.py     # Scrap du classement de Champions Cup
+│   ├── extract_classement_top14.py   # Scrap du classement du Top 14
+│   ├── extract_img_players.py        # Scrap des images des joueurs
+│   ├── extract_players.py            # Scrap des informations des joueurs
+│   ├── extract_results.py            # Scrap des résulats du club
+│   ├── photo_extract.py              # Scrap des images des joueurs
+│   ├── test_flags.py                 # Scrap des images des drapeaux
+│   └── url_extract.py                # Scrap des liens des images des joueurs
 │
-├── main.py                  # Point d'entrée pour lancer tout le processus
-├── requirements.txt         # Liste des librairies (pandas, beautifulsoup4, selenium, etc.)
-├── .gitignore               # Pour ne pas envoyer les gros fichiers de données ou les venv sur Git
-└── README.md                # Documentation du projet (Comment installer, comment lancer)
+├── Rapport_UBB.pdf                   
+└── README.md                         # Documentation du projet (Comment installer, comment lancer)
 
 ## Onglet **classement** :
 
