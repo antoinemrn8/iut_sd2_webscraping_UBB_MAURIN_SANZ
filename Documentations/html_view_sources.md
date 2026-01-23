@@ -1,4 +1,4 @@
-Voici quelques liens de code sources de pages de l'UBB nous ayant aider pour faire le scrap :
+Voici quelques liens de code sources de pages de l'UBB nous ayant aidé pour faire le scrap :
 
 
 `Page de Benjamin Tameifuna`
